@@ -56,7 +56,7 @@ client.on("messageCreate", async (message)=>{
     };
 
     try {
-        await fetch("http://localhost:5678/webhook/a41eda6e-7848-451a-8ad0-2ba82e64a7a4", {
+        await fetch("http://192.168.31.93:5678/webhook/a41eda6e-7848-451a-8ad0-2ba82e64a7a4", {
             method: "POST",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify(payload)
