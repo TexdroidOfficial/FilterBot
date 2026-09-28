@@ -49,7 +49,7 @@ client.on("messageCreate", async (message)=>{
     }
     
     const payload = {
-        username: message.author.username,
+        username: message.member?.displayName || message.author.username,
         avatar_url: message.author.displayAvatarURL(),
         original_text: message.content,
         webhook_url: webhook.url
