@@ -2,6 +2,12 @@ import dotenv from 'dotenv';
 import { Client, GatewayIntentBits, Message, TextChannel } from 'discord.js';
 dotenv.config()
 
+const n8nWebhookUrl = process.env.N8N_WEBHOOK_URL
+
+if (!n8nWebhookUrl) {
+    throw new Error ("Missing N8N_WEBHOOK_URL in enviroment variables")
+}
+
 const client = new Client ({
     intents: [
         GatewayIntentBits.Guilds,
@@ -56,7 +62,7 @@ client.on("messageCreate", async (message)=>{
     };
 
     try {
-        await fetch("http://192.168.31.93:5678/webhook/a41eda6e-7848-451a-8ad0-2ba82e64a7a4", {
+        await fetch(n8nWebhookUrl, {
             method: "POST",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify(payload)

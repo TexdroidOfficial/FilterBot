@@ -1,0 +1,13 @@
+node_modules/
+.env
+.env.*
+!.env.example
+bimbot.json
+.kilo/
+/dist/
+*.log
+index.js
+index.js.map
+index.d.ts
+index.d.ts.map
+.DS_Store
